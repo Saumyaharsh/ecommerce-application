@@ -1,0 +1,10 @@
+import express from "express";
+import { protectroutes } from "../middleware/auth.middleware.js";
+import { getusersforsidebar } from "../controllers/message.controller.js";
+import { getmessages } from "../controllers/message.controller.js";
+import { sendmessage } from "../controllers/message.controller.js";
+const router = express.Router();
+router.get("/users", protectroutes, getusersforsidebar);
+router.get("/:id", protectroutes, getmessages);
+router.post("send/:id", protectroutes, sendmessage);
+export default router;
