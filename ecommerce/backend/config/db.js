@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const connectdb = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/ecommererce-api");
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("Mongodb connected");
   } catch (error) {
     console.log(error);
